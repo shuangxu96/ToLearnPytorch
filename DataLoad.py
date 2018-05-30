@@ -10,14 +10,14 @@ import torch.nn.functional as F
 import torch.optim as optim
 
 def fmnist_loader():
-    with gzip.open(r'D:\py\data\fashion-mnist\train-labels-idx1-ubyte.gz', 'rb') as lbpath:
+    with gzip.open(r'D:\py\data\fashion-mnist\train-labels-idx1-ubyte.gz') as lbpath:
         labels = np.frombuffer(lbpath.read(), dtype=np.uint8,offset=8)
-    with gzip.open(r'D:\py\data\fashion-mnist\train-images-idx3-ubyte.gz', 'rb') as imgpath:
+    with gzip.open(r'D:\py\data\fashion-mnist\train-images-idx3-ubyte.gz') as imgpath:
         images = np.frombuffer(imgpath.read(), dtype=np.uint8,offset=16).reshape(
                 len(labels), 1, 28, 28)
-    with gzip.open(r'D:\py\data\fashion-mnist\t10k-labels-idx1-ubyte.gz', 'rb') as tlbpath:
+    with gzip.open(r'D:\py\data\fashion-mnist\t10k-labels-idx1-ubyte.gz') as tlbpath:
         tlabels = np.frombuffer(tlbpath.read(), dtype=np.uint8,offset=8)
-    with gzip.open(r'D:\py\data\fashion-mnist\t10k-images-idx3-ubyte.gz', 'rb') as timgpath:
+    with gzip.open(r'D:\py\data\fashion-mnist\t10k-images-idx3-ubyte.gz') as timgpath:
         timages = np.frombuffer(timgpath.read(), dtype=np.uint8,offset=16).reshape(
                 len(tlabels), 1, 28, 28)
         
